@@ -1,0 +1,15 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    padding-top: 1.25rem;
+    padding-left: 0;
+  }
+
+  .echarts {
+    width: 100%;
+    padding-left: 0;
+    height: nb-theme(card-height-large);
+  }
+}
