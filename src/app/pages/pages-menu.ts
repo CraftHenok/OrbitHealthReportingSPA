@@ -47,7 +47,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
    
       {
         title: 'Incidents',
-        link: '/pages/forms/layouts',
+        link: '/pages/forms/Claim',
       },
      
     ],

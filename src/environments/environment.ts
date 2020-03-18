@@ -11,7 +11,7 @@
  
 export const environment = {
   production: false,
- 
+  apiurl: "http://40.68.42.200/orbithealth.reporting.api/api/",
  
    // Your web app's Firebase configuration
      firebaseConfig : {

@@ -17,14 +17,10 @@ const routes: Routes = [
         component: FormInputsComponent,
       },
       {
-        path: 'layouts',
+        path: 'Claim',
         component: FormLayoutsComponent,
       },
-      {
-        path: 'layouts',
-        component: FormLayoutsComponent,
-      },
-      {
+            {
         path: 'buttons',
         component: ButtonsComponent,
       },

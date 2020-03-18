@@ -1,28 +1,30 @@
  
 
 <div class="row card">
+      <nb-card-header>Incidents </nb-card-header>
+     </div>
+
+<div class="row card">
   <div class="col-md-6">
      
     
-      <nb-card-header>Incidents </nb-card-header>
-      
         <form #myform = "ngForm" (ngSubmit) = "save(myform)">
        <div class="form-group">
-             <label>Region</label>
+             <label>City</label>
              <div class="ng-autocomplete">
                   <ng-autocomplete 
                   aria-placeholder="Location"
-                    [data]="geojson"
-                    [searchKeyword]="keyword"
-                    (selected)='selectEvent($event)'
-                    (inputChanged)='onChangeSearch($event)'
+                    [data]="geoRegion"
+                    [searchKeyword]="Regionkeyword"
+                    (selected)='onChangeRegionSearch($event)'
+                    (inputChanged)='onChangeRegionSearch($event)'
                     (inputFocused)='onFocused($event)'
                     [itemTemplate]="itemTemplate"
                     [notFoundTemplate]="notFoundTemplate">                                 
                   </ng-autocomplete>
                    
                   <ng-template #itemTemplate let-item>
-                  <a [innerHTML]="Name"></a>
+                  <a [innerHTML]="Item.Region"></a>
                   </ng-template>
                    
                   <ng-template #notFoundTemplate let-notFound>
@@ -31,21 +33,21 @@
                   </div>
              </div>
              <div class="form-group">
-              <label>Zone</label>
+              <label>Sub-City</label>
                <div class="ng-autocomplete">
                    <ng-autocomplete 
                    aria-placeholder="Zone"
-                     [data]="geojson"
-                     [searchKeyword]="keyword"
-                     (selected)='selectEvent($event)'
-                     (inputChanged)='onChangeSearch($event)'
+                     [data]="geoZone"
+                     [searchKeyword]="Zonekeyword"
+                     (selected)='onChangeZoneSearch($event)'
+                     (inputChanged)='onChangeZoneSearch($event)'
                      (inputFocused)='onFocused($event)'
                      [itemTemplate]="itemTemplate"
                      [notFoundTemplate]="notFoundTemplate">                                 
                    </ng-autocomplete>
                     
                    <ng-template #itemTemplate let-item>
-                   <a [innerHTML]="Name"></a>
+                   <a [innerHTML]="Item.Zone"></a>
                    </ng-template>
                     
                    <ng-template #notFoundTemplate let-notFound>
@@ -57,7 +59,7 @@
                 <label>Location</label>
                  <div class="ng-autocomplete">
                      <ng-autocomplete 
-                     aria-placeholder="Woreda"
+                     aria-placeholder="Location"
                        [data]="geojson"
                        [searchKeyword]="keyword"
                        (selected)='selectEvent($event)'
@@ -88,6 +90,23 @@
 </ng-multiselect-dropdown>
  
                 </div>
+                <div class="form-group">
+                    <label>Sex</label>
+                    <div>
+                        <input id="male" type="radio" value="male" name="gender" ngModel required >
+                        <label for="male">Male</label>
+                     </div>
+                  
+                     <div>
+                        <input id="female" type="radio" value="female" name="gender" ngModel required >
+                        <label for="female">Female</label>
+                     </div>
+             
+                </div>
+                <div class="form-group">
+                  <label>Age</label>
+                    <input type="number" class="form-control"  ngModel name="Age"/>
+                  </div>
           <div class="form-group">
            
             <textarea col=10 row=18 nbInput  name="Description" ngModel placeholder="Description"></textarea>

@@ -24,6 +24,9 @@ import {NgAutoCompleteModule} from "ng-auto-complete";
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+ 
+import { ToastrModule } from 'ngx-toastr';
+
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -43,7 +46,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     FormsModule, 
     AutocompleteLibModule, 
      FormsModule,

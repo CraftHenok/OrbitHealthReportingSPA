@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { startWith } from 'rxjs/internal/operators/startWith';
 import { map } from 'rxjs/internal/operators/map';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
- 
+import { environment } from './../environments/environment';
 import {shareReplay} from 'rxjs/operators'; 
 import { Claim } from './Claim';
 
@@ -19,7 +19,7 @@ export class DataServiceService {
   baseurl: string;
   http: HttpClient
  constructor(private httpclient: HttpClient,private angularFirestore: AngularFirestore ) {  
-            this.baseurl="http://localhost:26922/api/";  
+            this.baseurl=environment.apiurl;  
             this.http= httpclient;
 }  
  
@@ -38,17 +38,20 @@ export class DataServiceService {
         public getJSON(): Observable<any> {
           return this.http.get(this.baseurl+"Locations");
       }
-      public getRegion(): Observable<any> {
-        return this.http.get(this.baseurl+"Regions");
+      public getSymptoms(): Observable<any> {
+        return this.http.get(this.baseurl+"Symptoms");
     }
-    public getZone(): Observable<any> {
-      return this.http.get(this.baseurl+"Zones");
+      public getRegion(): Observable<any> {
+        return this.http.get(this.baseurl+"Locations/Regions");
+    }
+    public getZone(search:string): Observable<any> {
+      return this.http.get(this.baseurl+"Locations/Zone/"+search);
   }
   public searchLocation(search:string): Observable<any> {
     return this.http.get(this.baseurl+"Locations/"+search);
 }
   public getLocationByZone(zone:string): Observable<any> {
-    return this.http.get(this.baseurl+"Locations/FilterLocationByZone?Zone="+zone);
+    return this.http.get(this.baseurl+"Locations/FilterLocationByZone/"+zone);
 }
       public getGeoJson() {
                     
